@@ -27,10 +27,10 @@ after_success:
 deploy:
   provider: elasticbeanstalk
   region: "ap-northeast-2"
-  app: "docker-fullstack-app-2"
-  env: "docker-fullstack-app-2-env"
+  app: "docker-fullstack-app-3"
+  env: "docker-fullstack-app-3-env"
   bucket_name: elasticbeanstalk-ap-northeast-2-939992775538
-  bucker_path: "docker-fullstack-app-2"
+  bucker_path: "docker-fullstack-app-3"
   on:
     branch: main
   access_key_id: $AWS_ACCESS_KEY
