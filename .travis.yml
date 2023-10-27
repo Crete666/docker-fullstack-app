@@ -20,4 +20,4 @@ after_success:
 
   - docker push choijihyeok/docker-frontend
   - docker push choijihyeok/docker-backend
-  - docker push cchoijihyeok/nginx-nginx
+  - docker push cchoijihyeok/docker-nginx
