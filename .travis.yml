@@ -16,6 +16,8 @@ after_success:
   - docker build -t choijihyeok/docker-backend ./backend
   - docker build -t choijihyeok/docker-nginx ./nginx
 
+  - docker logout
+  
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
   - docker push choijihyeok/docker-frontend
