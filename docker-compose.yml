@@ -1,33 +1,33 @@
 version: "3"
 services:
   frontend:
-    image: choijihyeok/docker-frontend
+    build:
+      dockerfile: Dockerfile
+      context: ./frontend
     volumes:
       - /app/node_modules
       - ./frontend:/app
     stdin_open: true
-    mem limit: 128m
 
   nginx: 
     restart: always
-    image: choijihyeok/docker-nginx
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
     ports: 
-      - "80:3000"
-    mem limit: 128m
-    links:
-      - frontend
-      - backend
+      - "3000:80"
 
   backend:
-    image: choijihyeok/docker-backend
+    build: 
+      dockerfile: Dockerfile
+      context: ./backend
     container_name: app_backend
     volumes:
       - /app/node_modules
       - ./backend:/app
-    environment:
-      MYSQL_HOST: docker-fullstack-mysql.c4sp8fmwqfrc.ap-northeast-2.rds.amazonaws.com
-      MYSQL_USER: root
+    environment: 
+      MYSQL_HOST: mysql
+      MYSQL_USER: root 
       MYSQL_ROOT_PASSWORD: choijihyeok
       MYSQL_DATABASE: myapp
       MYSQL_PORT: 3306
-    mem limit: 128m
